@@ -10,17 +10,15 @@ interface formInterface {
 
 const AddComment = ({ id }: { id: string; }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<formInterface>();
-  const [submitted, setSubmitted] = useState<boolean>(true);
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const onSubmit: SubmitHandler<formInterface> = async data => {
     try {
       await fetch('/api/createComment', {
         method: 'POST',
         body: JSON.stringify(data),
       });
-      console.log(data);
       setSubmitted(true);
     } catch (err: any) {
-      console.error(err);
       setSubmitted(false);
     }
   };

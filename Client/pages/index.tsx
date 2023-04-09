@@ -11,8 +11,6 @@ interface postInterface {
 }
 
 export default function Home({ posts }: postInterface) {
-  console.log(posts);
-
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
